@@ -1,13 +1,12 @@
-
+# frozen_string_literal: true
 module Cloudconvert
   class Configuration
     attr_accessor :api_key, :callback
 
     def initialize
-      api_key = nil
-      callback = nil
+      @api_key = nil
+      @callback = nil
     end
-    
   end
 
   class << self

@@ -1,17 +1,16 @@
-require "cloudconvert/version"
-require "cloudconvert/configuration"
-require "cloudconvert/client"
-require "cloudconvert/conversion"
+# frozen_string_literal: true
+require 'cloudconvert/version'
+require 'cloudconvert/configuration'
+require 'cloudconvert/client'
+require 'cloudconvert/conversion'
 
-require "faraday"
+require 'faraday'
 require 'faraday_middleware'
 
 module Cloudconvert
+  CONVERSION_URL = 'https://api.cloudconvert.org/'
 
-  CONVERSION_URL = "https://api.cloudconvert.org/"
-
-  API_KEY_ERROR = "API Key cant be blank!"
+  API_KEY_ERROR = 'API Key cant be blank!'
 
   Cloudconvert.configure
-
 end

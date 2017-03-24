@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Cloudconvert
   # TODO: DRY this up?
   class Client
@@ -7,7 +8,7 @@ module Cloudconvert
 
       @conn ||= Faraday.new(url: Cloudconvert::CONVERSION_URL) do |faraday|
         faraday.request 			:json
-        faraday.response			:json, content_type: /\bjson$/
+        faraday.response			:json, content_type: %r{\bjson$}
         # faraday.response			:logger
         faraday.adapter 			Faraday.default_adapter
       end
@@ -24,11 +25,10 @@ module Cloudconvert
 
   class Upload
     def initialize
-
       @up ||= Faraday.new(url: Cloudconvert::CONVERSION_URL) do |faraday|
         faraday.request 			:multipart
         faraday.request 			:url_encoded
-        faraday.response			:json, content_type: /\bjson$/
+        faraday.response			:json, content_type: %r{\bjson$}
         # faraday.response			:logger
         faraday.adapter 			Faraday.default_adapter
       end

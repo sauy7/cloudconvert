@@ -1,0 +1,32 @@
+inherit_from:
+
+AllCops:
+  DefaultFormatter: simple
+  TargetRubyVersion: 2.3
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Rails:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  EnforcedStyle: percent_r
+
+Metrics/BlockLength:
+  Exclude:
+    - config/routes.rb
+    - lib/tasks/*.rake
+#  Max: 100
+
+# Metrics/ClassLength:
+#  Max: 1500

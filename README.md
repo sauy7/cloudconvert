@@ -21,14 +21,12 @@ Or install it yourself as:
 This is a Ruby wrapper for [Cloud Convert](http:/cloudconvert.org) where you can convert files from one format to another format.
 
 ```ruby
-Configure CloudConvert
+Cloudconvert.configure do |config|
+  config.api_key  = your_api_key
 
-	Cloudconvert.configure do |config|
-		config.api_key  = your_api_key
-
-    # optional - can be added to payload anytime
-		config.callback = callback_url
-	end
+  # optional - can be added to payload anytime
+  config.callback = callback_url
+end
 ```
 
 By providing a callback URL when starting the conversion, it is possible to get notified when the conversion is finished. When the conversion completed (or ended with an error), the following GET request will be executed: ` callback url?id=....&url=...`
@@ -55,12 +53,12 @@ require 'cloudconvert'
 
 # Configure
 Cloudconvert.configure do |config|
-    config.api_key  = '<your api key>'
+  config.api_key  = '<your api key>'
 end
 
 # Create a new process
 conv = Cloudconvert::Conversion.new('md', 'pdf')
-conv.newProcess
+conv.new_process
 
 # Create conversion payload
 # Remove dropbox if you didn't link it
@@ -110,7 +108,7 @@ end
 
 # Create a new process
 conv = Cloudconvert::Conversion.new('md', 'pdf')
-conv.newProcess
+conv.new_process
 
 # Create an uploadable file
 # Arguments:
@@ -162,12 +160,12 @@ require 'cloudconvert'
 
 # Configure
 Cloudconvert.configure do |config|
-    config.api_key  = '<your api key>'
+  config.api_key = '<your api key>'
 end
 
 # Create a new process
 conv = Cloudconvert::Conversion.new('md', 'pdf')
-conv.newProcess
+conv.new_process
 
 # Create a Hash containing you credentials and desired bucket
 # For the sake of simplicity, we'll use the same bucket for input and output,
@@ -248,7 +246,7 @@ Delete current conversion
   conv.cancel
 ```
 
-Cancle current conversion
+Cancel current conversion
 
 ## Contributing
 
