@@ -41,8 +41,8 @@ module Cloudconvert
       upload.post(@process_url, @conv_payload)
     end
 
-    def status
-      client.get(@process_url)
+    def status(url = @process_url)
+      client.get(url)
     end
 
     def step
